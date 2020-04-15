@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+#include <time.h>
+
+using namespace std;
+
+int main()
+{
+  int k = 0;
+  int const r = 3, c = 4;
+  int sum = 0;
+  int arr[r][c];
+  int max = 0;
+  int a = -50, b = 50;
+  srand(time(NULL));
+  for (int i = 0; i < r; i++)
+  {
+    for (int j = 0; j < c; j++)
+    {
+      arr[i][j] = rand() % (b - a + 1) + a;
+    }
+  }
+  for (int i = 0; i < r; i++)
+  {
+    for (int j = 0; j < c; j++)
+    {
+      if (arr[i][j] > max)
+      max = arr[i][j];
+      cout << "\t" << arr[i][j] << "|";
+    }
+   cout << endl;
+  }
+  cout << endl;
+  cout << "\max:" << max << endl;
+  for (int i = 0; i < r; i++)
+  {
+    for (int j = 0; j < c; j++)
+    {
+      if (arr[i][j] == max)
+      k = k + 1;
+    }
+  }
+  cout << "k=" << k << endl;
+  return 0;
+}

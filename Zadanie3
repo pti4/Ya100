@@ -1,0 +1,46 @@
+#include <iostream>
+#include <clocale>
+#include <ctime>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+  int const r = 5, c = 5;
+  int max = -1000;
+  int a = r;
+  int arr[r][c];
+  srand(time(NULL));
+  for (int i = 0; i < r; i++)
+  {
+    for (int j = 0; j < c; j++)
+    {
+      arr[i][j] = rand() % 100-40;
+      cout << setw(8) << arr[i][j] << "|";
+    }
+    cout << endl;
+  }
+  for (int i = 0; i < r; i++)
+  {
+    for (int j = 0; j < c; j++)
+    {
+      if (arr[i][j] == 0) 
+      {
+       a = a - 1;
+      }
+    }
+  }
+  cout << a << endl;
+  for (int i = 0; i < r; i++)
+  {
+    for (int j = 0; j < c; j++)
+    {
+      if (arr[i][j] > max)
+      max = arr[i][j];
+    }
+    cout << endl;
+  }
+  cout << max << endl;
+  return 0;
+}
